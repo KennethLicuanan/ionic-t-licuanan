@@ -1,0 +1,7 @@
+{
+  "name": "ionic-t-licuanan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
