@@ -18,10 +18,10 @@ const Tab1: React.FC = () => {
         </IonHeader>
 
         <IonCard>
-      <img alt="Silhouette of mountains" src="../src/assets/img/Capture.png" />
+      <img alt="Silhouette of mountains" src="../src/assets/img/ME.jpg" />
         <IonCardHeader>
-           <IonCardTitle>Kenenth Licuanan</IonCardTitle>
-           <IonCardSubtitle>This is my Champion</IonCardSubtitle>
+           <IonCardTitle>Kenneth LLoyd C. Licuanan</IonCardTitle>
+           <IonCardSubtitle>This is my Handsome Self</IonCardSubtitle>
           </IonCardHeader>
 
           <IonCardContent>Honor once bound me above all else.</IonCardContent>
