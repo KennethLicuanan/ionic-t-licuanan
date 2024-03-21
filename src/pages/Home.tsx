@@ -18,7 +18,7 @@ const Home: React.FC = () => {
             <IonTitle size="large">Home</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <h1 className='welcome'>WELCOME TO MY HOMEPAGE</h1>
+        <h1 className='welcome'>WELCOME TO MY IONIC APP</h1>
       </IonContent>
     </IonPage>
   );
