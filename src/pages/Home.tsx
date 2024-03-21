@@ -2,13 +2,14 @@ import {
   //Initial Components
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
 } from '@ionic/react';
+import './Home.css';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Home</IonTitle>
+          <IonTitle class='home'>Home</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -17,13 +18,12 @@ const Home: React.FC = () => {
             <IonTitle size="large">Home</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <h1 className='ion-text-center'>WELCOME TO MY HOMEPAGE</h1>
+        <h1 className='welcome'>WELCOME TO MY HOMEPAGE</h1>
       </IonContent>
     </IonPage>
-
-
-
   );
 };
+
+
 
 export default Home;
