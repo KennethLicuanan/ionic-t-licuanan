@@ -19,10 +19,10 @@ const Tab1: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <IonCard>
+        <IonCard >
       <img alt="Silhouette of mountains" src="../src/assets/img/ME.jpg" />
         <IonCardHeader>
-           <IonCardTitle>Kenneth LLoyd C. Licuanan</IonCardTitle>
+           <IonCardTitle className='card'>Kenneth LLoyd C. Licuanan</IonCardTitle>
            <IonCardSubtitle>This is my Handsome Self</IonCardSubtitle>
           </IonCardHeader>
 
