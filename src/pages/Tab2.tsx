@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
 
@@ -34,9 +34,9 @@ const Tab2: React.FC = () => {
         <div className="click-counter">
           <p>Number of Clicks: {clickCount}</p>
           {/* Button to increment the counter */}
-          <button onClick={handleClick}>Click me!</button> <br /><br />
+          <IonButton onClick={handleClick} expand="block">Click me!</IonButton> <br /><br />
           {/* Button to reset the counter */}
-          <button onClick={handleReset}>Reset</button>
+          <IonButton onClick={handleReset} expand="block" color="danger">Reset</IonButton>
         </div>
       </IonContent>
     </IonPage>
