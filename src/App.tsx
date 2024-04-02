@@ -67,11 +67,11 @@ const App: React.FC = () => (
             <IonIcon aria-hidden="true" icon={personCircleOutline} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          <IonTabButton tab="tab2" href="/tab2">
             <IonIcon aria-hidden="true" icon={calculatorOutline} />
             <IonLabel>Calculator</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="tab3" href="/tab3">
             <IonIcon aria-hidden="true" icon={apertureOutline} />
             <IonLabel>Click Counter</IonLabel>
           </IonTabButton>
