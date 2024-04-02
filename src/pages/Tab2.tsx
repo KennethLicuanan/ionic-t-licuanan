@@ -1,8 +1,22 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
 
 const Tab2: React.FC = () => {
+  // State to track the number of clicks
+  const [clickCount, setClickCount] = useState(0);
+
+  // Function to handle click events and increment the counter
+  const handleClick = () => {
+    setClickCount(prevCount => prevCount + 1);
+  };
+
+  // Function to reset the click counter
+  const handleReset = () => {
+    setClickCount(0);
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -16,6 +30,14 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">Click Counter</IonTitle>
           </IonToolbar>
         </IonHeader>
+        {/* Display the click counter */}
+        <div className="click-counter">
+          <p>Number of Clicks: {clickCount}</p><br /><br />
+          {/* Button to increment the counter */}
+          <IonButton onClick={handleClick} expand="block">Click me!</IonButton> <br /><br />
+          {/* Button to reset the counter */}
+          <IonButton onClick={handleReset} expand="block" color="danger">Reset</IonButton>
+        </div>
       </IonContent>
     </IonPage>
   );
