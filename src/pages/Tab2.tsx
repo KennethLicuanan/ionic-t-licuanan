@@ -32,7 +32,7 @@ const Tab2: React.FC = () => {
         </IonHeader>
         {/* Display the click counter */}
         <div className="click-counter">
-          <p>Number of Clicks: {clickCount}</p>
+          <p>Number of Clicks: {clickCount}</p><br /><br />
           {/* Button to increment the counter */}
           <IonButton onClick={handleClick} expand="block">Click me!</IonButton> <br /><br />
           {/* Button to reset the counter */}
