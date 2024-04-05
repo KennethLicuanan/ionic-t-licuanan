@@ -11,9 +11,9 @@ import {
   IonCol,
   IonInput
 } from '@ionic/react';
-import './Tab3.css';
+import './Calculator.css';
 
-const Tab3: React.FC = () => {
+const Calculator: React.FC = () => {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
 
@@ -89,4 +89,4 @@ const Tab3: React.FC = () => {
   );
 };
 
-export default Tab3;
+export default Calculator;
