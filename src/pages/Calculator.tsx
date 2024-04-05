@@ -42,48 +42,42 @@ const Calculator: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonGrid>
-          <IonRow>
-            <IonCol size="12">
-              <IonInput
-                value={input}
-                readonly
-              ></IonInput>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="3"><IonButton onClick={() => handleInput('7')}>7</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('8')}>8</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('9')}>9</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={handleClear}>C</IonButton></IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="3"><IonButton onClick={() => handleInput('4')}>4</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('5')}>5</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('6')}>6</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('+')}>+</IonButton></IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="3"><IonButton onClick={() => handleInput('1')}>1</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('2')}>2</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('3')}>3</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('-')}>-</IonButton></IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="3"><IonButton onClick={() => handleInput('0')}>0</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('*')}>*</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={() => handleInput('/')}>/</IonButton></IonCol>
-            <IonCol size="3"><IonButton onClick={handleCalculate}>=</IonButton></IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="12">
-              <IonInput
-                value={result}
-                readonly
-              ></IonInput>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+        <div className="calculator-container">
+          <IonInput
+            className="calc-input"
+            value={input}
+            readonly
+          ></IonInput>
+          <div className="button-row">
+            <IonButton className="button" onClick={() => handleInput('7')}>7</IonButton>
+            <IonButton className="button" onClick={() => handleInput('8')}>8</IonButton>
+            <IonButton className="button" onClick={() => handleInput('9')}>9</IonButton>
+            <IonButton className="button" onClick={handleClear}>C</IonButton>
+          </div>
+          <div className="button-row">
+            <IonButton className="button" onClick={() => handleInput('4')}>4</IonButton>
+            <IonButton className="button" onClick={() => handleInput('5')}>5</IonButton>
+            <IonButton className="button" onClick={() => handleInput('6')}>6</IonButton>
+            <IonButton className="button" onClick={() => handleInput('+')}>+</IonButton>
+          </div>
+          <div className="button-row">
+            <IonButton className="button" onClick={() => handleInput('1')}>1</IonButton>
+            <IonButton className="button" onClick={() => handleInput('2')}>2</IonButton>
+            <IonButton className="button" onClick={() => handleInput('3')}>3</IonButton>
+            <IonButton className="button" onClick={() => handleInput('-')}>-</IonButton>
+          </div>
+          <div className="button-row">
+            <IonButton className="button" onClick={() => handleInput('0')}>0</IonButton>
+            <IonButton className="button" onClick={() => handleInput('*')}>*</IonButton>
+            <IonButton className="button" onClick={() => handleInput('/')}>/</IonButton>
+            <IonButton className="button" onClick={handleCalculate}>=</IonButton>
+          </div>
+          <IonInput
+            className="result"
+            value={result}
+            readonly
+          ></IonInput>
+        </div>
       </IonContent>
     </IonPage>
   );
