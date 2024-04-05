@@ -14,7 +14,7 @@ import { apertureOutline, calculatorOutline, home, ellipse, personCircleOutline,
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import ClickCounter from './pages/ClickCounter';
-import Tab3 from './pages/Tab3';
+import Tab3 from './pages/Calculator';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
