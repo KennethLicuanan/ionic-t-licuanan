@@ -26,7 +26,13 @@ const Home: React.FC = () => {
         <IonCardSubtitle>League of Legends Wildrift</IonCardSubtitle>
            </IonCardHeader>
         </IonCard>
-        <IonCard></IonCard>
+        <IonCard>
+      <img alt="Yone" src="src\assets\img\images (8).jpeg" />
+      <IonCardHeader>
+        <IonCardTitle>This is also my Favorite Hero</IonCardTitle>
+        <IonCardSubtitle>Mobile Legends Bang Bang</IonCardSubtitle>
+           </IonCardHeader>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
