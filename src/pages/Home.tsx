@@ -1,6 +1,7 @@
 import {
   //Initial Components
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+  IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle
 } from '@ionic/react';
 import './Home.css';
 
@@ -18,7 +19,14 @@ const Home: React.FC = () => {
             <IonTitle size="large">Home</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <h1 className='welcome'>WELCOME TO MY IONIC APP</h1>
+        <IonCard>
+      <img alt="Yone" src="src\assets\img\1307480.jpg" />
+      <IonCardHeader>
+        <IonCardTitle>This is my Favorite Champion</IonCardTitle>
+        <IonCardSubtitle>League of Legends Wildrift</IonCardSubtitle>
+           </IonCardHeader>
+        </IonCard>
+        <IonCard></IonCard>
       </IonContent>
     </IonPage>
   );
