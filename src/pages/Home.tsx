@@ -46,7 +46,7 @@ const Home: React.FC = () => {
             <IonThumbnail slot="start">
               <img alt="Calculator Logo" src="../src/assets/img/calculator.png" />
             </IonThumbnail>
-            <IonButton>Calculator</IonButton>
+            <IonButton href='/Calculator'>Calculator</IonButton>
           </IonItem>
 
           <IonItem>
