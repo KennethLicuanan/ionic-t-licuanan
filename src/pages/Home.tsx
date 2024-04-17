@@ -10,6 +10,7 @@ import {
   IonLabel,
   IonList,
   IonThumbnail,
+  IonButton
 } from '@ionic/react';
 import './Home.css';
 
@@ -38,14 +39,14 @@ const Home: React.FC = () => {
             <IonThumbnail slot="start">
               <img alt="Click Logo" src="../src/assets/img/click.png" />
             </IonThumbnail>
-            <IonLabel>Click Counter</IonLabel>
+            <IonButton>Click Counter</IonButton>
           </IonItem>
 
           <IonItem>
             <IonThumbnail slot="start">
               <img alt="Calculator Logo" src="../src/assets/img/calculator.png" />
             </IonThumbnail>
-            <IonLabel>Calculator</IonLabel>
+            <IonButton>Calculator</IonButton>
           </IonItem>
 
           <IonItem>
