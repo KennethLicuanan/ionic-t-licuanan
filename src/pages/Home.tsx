@@ -39,7 +39,7 @@ const Home: React.FC = () => {
             <IonThumbnail slot="start">
               <img alt="Click Logo" src="../src/assets/img/click.png" />
             </IonThumbnail>
-            <IonButton>Click Counter</IonButton>
+            <IonButton href='/ClickCounter'>Click Counter</IonButton>
           </IonItem>
 
           <IonItem>
