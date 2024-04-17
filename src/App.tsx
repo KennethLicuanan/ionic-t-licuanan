@@ -10,11 +10,11 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { apertureOutline, calculatorOutline, home, ellipse, personCircleOutline, square, triangle } from 'ionicons/icons';
+import { apertureOutline, calculatorOutline, home, ellipse, personCircleOutline, square, triangle, closeOutline, alertCircleOutline } from 'ionicons/icons';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import ClickCounter from './pages/ClickCounter';
-import Tab3 from './pages/Calculator';
+import Calculator from './pages/Calculator';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -51,8 +51,8 @@ const App: React.FC = () => (
           <Route exact path="/ClickCounter">
             <ClickCounter />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/Calculator">
+            <Calculator />
           </Route>
           <Route exact path="/">
             <Redirect to="/Home" />
@@ -63,17 +63,13 @@ const App: React.FC = () => (
             <IonIcon aria-hidden="true" icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
+          <IonTabButton tab="Blank" href="/Blank">
+            <IonIcon aria-hidden="true" icon={closeOutline} />
+            <IonLabel>Close</IonLabel>
+          </IonTabButton>
           <IonTabButton tab="Profile" href="/Profile">
-            <IonIcon aria-hidden="true" icon={personCircleOutline} />
+            <IonIcon aria-hidden="true" icon={alertCircleOutline} />
             <IonLabel>Profile</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="ClickCounter" href="/ClickCounter">
-            <IonIcon aria-hidden="true" icon={apertureOutline} />
-            <IonLabel>Click Counter</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={calculatorOutline} />
-            <IonLabel>Calculator</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

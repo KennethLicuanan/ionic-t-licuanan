@@ -38,6 +38,9 @@ const ClickCounter: React.FC = () => {
           {/* Button to reset the counter */}
           <IonButton onClick={handleReset} expand="block" color="danger">Reset</IonButton>
         </div>
+        <br />
+        <br />
+        <IonButton href='/Home'>Back</IonButton>
       </IonContent>
     </IonPage>
   );
