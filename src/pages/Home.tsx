@@ -29,8 +29,8 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonCard>
       <IonCardHeader>
-        <IonCardTitle>Card Title</IonCardTitle>
-        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+        <IonCardTitle>Application Lists</IonCardTitle>
+        <IonCardSubtitle>Courtesy of Kenn</IonCardSubtitle>
       </IonCardHeader>
       <IonCardContent>
         <IonList>
