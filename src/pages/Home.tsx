@@ -36,30 +36,30 @@ const Home: React.FC = () => {
         <IonList>
           <IonItem>
             <IonThumbnail slot="start">
-              <img alt="Silhouette of mountains" src="../src/assets/img/click.png" />
+              <img alt="Click Logo" src="../src/assets/img/click.png" />
             </IonThumbnail>
-            <IonLabel>Item</IonLabel>
+            <IonLabel>Click Counter</IonLabel>
           </IonItem>
 
           <IonItem>
             <IonThumbnail slot="start">
-              <img alt="Silhouette of mountains" src="../src/assets/img/calculator.png" />
+              <img alt="Calculator Logo" src="../src/assets/img/calculator.png" />
             </IonThumbnail>
-            <IonLabel>Item</IonLabel>
+            <IonLabel>Calculator</IonLabel>
           </IonItem>
 
           <IonItem>
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
             </IonThumbnail>
-            <IonLabel>Item</IonLabel>
+            <IonLabel>Blank</IonLabel>
           </IonItem>
 
           <IonItem lines="none">
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
             </IonThumbnail>
-            <IonLabel>Item</IonLabel>
+            <IonLabel>Blank</IonLabel>
           </IonItem>
         </IonList>
       </IonCardContent>
