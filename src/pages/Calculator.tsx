@@ -81,6 +81,7 @@ const Calculator: React.FC = () => {
                 value={result}
                 readonly
               ></IonInput>
+              <IonButton href='/Home'>Back</IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>
