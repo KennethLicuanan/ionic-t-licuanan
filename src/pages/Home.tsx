@@ -51,9 +51,9 @@ const Home: React.FC = () => {
 
           <IonItem>
             <IonThumbnail slot="start">
-              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+              <img alt="Silhouette of mountains" src="../src/assets/img/TodoList.PNG" />
             </IonThumbnail>
-            <IonLabel>Blank</IonLabel>
+            <IonButton href='/TodoList'>Todo List</IonButton>
           </IonItem>
 
           <IonItem lines="none">
