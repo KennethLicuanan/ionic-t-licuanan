@@ -1,12 +1,38 @@
-/* styles.css */
-.welcome {
-    font-size: 30px;
-    font-family: cursive;
-    color: rgb(4, 4, 7);
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-  }
 .home {
-    font-family: cursive;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ion-item {
+  --border-color: transparent;
+}
+
+ion-input {
+  --padding-start: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 50px); /* Adjust the width as needed */
+}
+
+ion-button {
+  --padding-start: 5px;
+}
+
+ion-icon {
+  font-size: 24px;
+}
+
+ion-checkbox {
+  --color: #007bff;
+}
+
+ion-label {
+  font-size: 18px;
+}
+
+ion-item ion-icon {
+  margin-right: 10px;
 }
