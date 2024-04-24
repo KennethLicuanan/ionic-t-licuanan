@@ -1,12 +1,31 @@
 /* styles.css */
-.welcome {
-    font-size: 30px;
+.click-header {
+  font-size: 25px;
+  font-family: cursive;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.click-title {
+    font-size: 25px;
     font-family: cursive;
-    color: rgb(4, 4, 7);
+    color: rgb(255, 255, 255);
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
   }
 .home {
     font-family: cursive;
+}
+
+.img-click-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-click {
+  border-radius: 30%;
+  width: 50%;
 }

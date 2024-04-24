@@ -23,48 +23,40 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonCard>
+
+    <IonCard color={'dark'}>
+      <IonHeader className='click-header'>Applet's of Kenn</IonHeader>
+      </IonCard>
+    <IonCard color={'warning'} href='/ClickCounter'>
       <IonCardHeader>
-        <IonCardTitle>Application Lists</IonCardTitle>
-        <IonCardSubtitle>Courtesy of Kenn</IonCardSubtitle>
-      </IonCardHeader>
-      <IonCardContent>
-        <IonList>
-          <IonItem>
-            <IonThumbnail slot="start">
-              <img alt="Click Logo" src="../src/assets/img/click.png" />
-            </IonThumbnail>
-            <IonButton href='/ClickCounter'>Click Counter</IonButton>
-          </IonItem>
-
-          <IonItem>
-            <IonThumbnail slot="start">
-              <img alt="Calculator Logo" src="../src/assets/img/calculator.png" />
-            </IonThumbnail>
-            <IonButton href='/Calculator'>Calculator</IonButton>
-          </IonItem>
-
-          <IonItem>
-            <IonThumbnail slot="start">
-              <img alt="Silhouette of mountains" src="../src/assets/img/TodoList.PNG" />
-            </IonThumbnail>
-            <IonButton href='/TodoList'>Todo List</IonButton>
-          </IonItem>
-
-          <IonItem lines="none">
-            <IonThumbnail slot="start">
-              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-            </IonThumbnail>
-            <IonLabel>Blank</IonLabel>
-          </IonItem>
-        </IonList>
-      </IonCardContent>
+        <IonCardTitle className='click-title'>Click Counter</IonCardTitle>
+          <IonCardSubtitle className='click-title'>Applet #1</IonCardSubtitle><br />
+        <div className='img-click-container'>
+          <img src="../src/assets/img/click.png" alt="Click logo" className='img-click'/>
+            </div>
+      </IonCardHeader>  
     </IonCard>
+
+    <IonCard color={'tertiary'} href='/Calculator'>
+      <IonCardHeader>
+        <IonCardTitle className='click-title'>Calculator</IonCardTitle>
+          <IonCardSubtitle className='click-title'>Applet #2</IonCardSubtitle><br />
+        <div className='img-click-container'>
+          <img src="../src/assets/img/calculator.png" alt="Click logo" className='img-click'/>
+            </div>
+      </IonCardHeader>  
+    </IonCard>
+
+    <IonCard color={'danger'} href='/TodoList'>
+      <IonCardHeader>
+        <IonCardTitle className='click-title'>Todo List</IonCardTitle>
+          <IonCardSubtitle className='click-title'>Applet #3</IonCardSubtitle><br />
+        <div className='img-click-container'>
+          <img src="../src/assets/img/TodoList.PNG" alt="Click logo" className='img-click'/>
+            </div>
+      </IonCardHeader>  
+    </IonCard>
+
       </IonContent>
     </IonPage>
   );
