@@ -5,48 +5,33 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonTextarea,
+  IonButton,
   IonList,
   IonItem,
-  IonCheckbox,
-  IonLabel,
-  IonInput,
-  IonButton,
-  IonIcon,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonCard,
-  IonCardContent
+  IonCheckbox
 } from '@ionic/react';
 import './TodoList.css';
 import { addCircleOutline, checkmarkCircleOutline } from 'ionicons/icons';
 
 const Home: React.FC = () => {
-  const [todos, setTodos] = useState<string[]>([]);
-  const [newTodo, setNewTodo] = useState<string>('');
+  const [task, setTask] = useState<string>('');
+  const [tasks, setTasks] = useState<string[]>([]);
 
-  useEffect(() => {
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
-
-  const handleAddTodo = () => {
-    if (newTodo.trim() !== '') {
-      setTodos([...todos, newTodo]);
-      setNewTodo('');
+  const addTask = () => {
+    if (task.trim() !== '') {
+      setTasks([...tasks, task]);
+      setTask(''); // clear the input field
     }
   };
 
-  const handleToggleTodo = (index: number) => {
-    const updatedTodos = [...todos];
-    updatedTodos[index] = updatedTodos[index] + ' - Completed';
-    setTodos(updatedTodos);
+  const toggleTask = (index: number) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index] = updatedTasks[index].startsWith('✓ ') ? updatedTasks[index].substring(2) : '✓ ' + updatedTasks[index];
+    setTasks(updatedTasks);
   };
 
   return (
@@ -57,39 +42,36 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonGrid>
-          <IonRow>
-            <IonCol size="12" size-md="8" offset-md="2">
-              <IonCard>
-                <IonCardContent>
-                  <IonList>
-                    {todos.map((todo, index) => (
-                      <IonItem key={index} lines="none">
-                        <IonCheckbox slot="start" onIonChange={() => handleToggleTodo(index)} />
-                        <IonLabel>{todo}</IonLabel>
-                        <IonIcon icon={checkmarkCircleOutline} slot="end" color="success" />
-                      </IonItem>
-                    ))}
-                  </IonList>
-                  <IonItem lines="none">
-                    <IonInput
-                      value={newTodo}
-                      placeholder="Enter a new todo"
-                      onIonChange={(e) => setNewTodo(e.detail.value!)}
-                    />
-                    <IonButton slot="end" onClick={handleAddTodo} fill="clear">
-                      <IonIcon icon={addCircleOutline} slot="icon-only" />
-                    </IonButton>
-                  </IonItem>
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
-        <br />
-        <br />
-        <br />
-        <IonButton href='/Home'>Back To Home</IonButton>
+
+        <IonCard color={'warning'}>
+          <IonCardHeader>
+            <IonTextarea
+              value={task}
+              onIonChange={(e) => setTask(e.detail.value!)}
+              label="Solid textarea"
+              labelPlacement="floating"
+              fill="outline"
+              placeholder="Enter text"
+            ></IonTextarea>
+          </IonCardHeader>
+          <IonCardContent>
+            <IonButton expand="block" onClick={addTask}>Add Task</IonButton>
+          </IonCardContent>
+        </IonCard>
+
+
+          <IonCard>
+          <IonList>
+          {tasks.map((task, index) => (
+            <IonItem key={index}>
+              <IonCheckbox slot="start" checked={task.startsWith('✓ ')} onIonChange={() => toggleTask(index)} />
+              <IonTitle className={task.startsWith('✓ ') ? 'completed' : ''}>{task}</IonTitle>
+            </IonItem>
+          ))}
+        </IonList>
+          </IonCard>
+        
+
       </IonContent>
     </IonPage>
   );
