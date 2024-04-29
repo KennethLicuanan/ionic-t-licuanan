@@ -71,10 +71,6 @@ const App: React.FC = () => (
             <IonIcon aria-hidden="true" icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="Blank" href="/Blank">
-            <IonIcon aria-hidden="true" icon={closeOutline} />
-            <IonLabel>Close</IonLabel>
-          </IonTabButton>
           <IonTabButton tab="Profile" href="/Profile">
             <IonIcon aria-hidden="true" icon={alertCircleOutline} />
             <IonLabel>Profile</IonLabel>
