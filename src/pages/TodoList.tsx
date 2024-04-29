@@ -12,7 +12,9 @@ import {
   IonButton,
   IonList,
   IonItem,
-  IonCheckbox
+  IonCheckbox,
+  IonButtons,
+  IonBackButton
 } from '@ionic/react';
 import './TodoList.css';
 import { addCircleOutline, checkmarkCircleOutline } from 'ionicons/icons';
@@ -41,6 +43,9 @@ const Home: React.FC = () => {
           <IonTitle class='home'>Todo List</IonTitle>
         </IonToolbar>
       </IonHeader>
+      <IonButtons slot="start">
+          <IonBackButton defaultHref="/" />
+        </IonButtons>
       <IonContent fullscreen>
 
         <IonCard color={'warning'}>

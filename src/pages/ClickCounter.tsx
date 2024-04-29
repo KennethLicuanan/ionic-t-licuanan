@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonBackButton, IonButtons} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './ClickCounter.css';
 
@@ -24,6 +24,9 @@ const ClickCounter: React.FC = () => {
           <IonTitle class='click'>Click Counter</IonTitle>
         </IonToolbar>
       </IonHeader>
+      <IonButtons slot="start">
+          <IonBackButton defaultHref="/" />
+        </IonButtons>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
@@ -38,9 +41,6 @@ const ClickCounter: React.FC = () => {
           {/* Button to reset the counter */}
           <IonButton onClick={handleReset} expand="block" color="danger">Reset</IonButton>
         </div>
-        <br />
-        <br />
-        <IonButton href='/Home'>Back</IonButton>
       </IonContent>
     </IonPage>
   );
