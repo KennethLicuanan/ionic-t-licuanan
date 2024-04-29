@@ -46,6 +46,14 @@ const cardData = [
     subicon: logoIonic
   },
   
+  {
+    title: 'Quote Generator',
+    icon: pencil,
+    subtitle: 'Applet #4',
+    link: '/QuoteGenerator',
+    subicon: logoIonic
+  },
+  
 ];
 
   const Home: React.FC = () => {
