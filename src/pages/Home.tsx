@@ -1,67 +1,108 @@
+import React, { useState } from 'react';
 import {
-  //Initial Components
-  IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
   IonCard,
-  IonCardContent,
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonThumbnail,
-  IonButton
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonIcon,
+  IonPage,
+  IonRow,
+  IonTitle,
+  IonToolbar,
+  IonSearchbar,
 } from '@ionic/react';
+
+//Custom CSS
 import './Home.css';
 
-const Home: React.FC = () => {
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle class='home'>Home</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
+//Ionic Icons
+import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase} from 'ionicons/icons';
 
-    <IonCard color={'dark'}>
-      <IonHeader className='click-header'>Applet's of Kenn</IonHeader>
-      </IonCard>
-    <IonCard color={'warning'} href='/ClickCounter'>
-      <IonCardHeader>
-        <IonCardTitle className='click-title'>Click Counter</IonCardTitle>
-          <IonCardSubtitle className='click-title'>Applet #1</IonCardSubtitle><br />
-        <div className='img-click-container'>
-          <img src="../src/assets/img/click.png" alt="Click logo" className='img-click'/>
-            </div>
-      </IonCardHeader>  
-    </IonCard>
+const cardData = [
+  {
+    title: 'Click Counter',
+    icon: speedometerOutline,
+    subtitle: 'Applet #1',
+    link: '/ClickCounter',
+    subicon: logoIonic
 
-    <IonCard color={'tertiary'} href='/Calculator'>
-      <IonCardHeader>
-        <IonCardTitle className='click-title'>Calculator</IonCardTitle>
-          <IonCardSubtitle className='click-title'>Applet #2</IonCardSubtitle><br />
-        <div className='img-click-container'>
-          <img src="../src/assets/img/calculator.png" alt="Click logo" className='img-click'/>
-            </div>
-      </IonCardHeader>  
-    </IonCard>
+  },
+  {
+    title: 'Calculator',
+    icon: calculator,
+    subtitle: 'Applet #2',
+    link: '/Calculator',
+    subicon: logoIonic
+  },
+  {
+    title: 'To Do List',
+    icon: pencil,
+    subtitle: 'Applet #3',
+    link: '/TodoList',
+    subicon: logoIonic
+  },
+  
+];
 
-    <IonCard color={'danger'} href='/TodoList'>
-      <IonCardHeader>
-        <IonCardTitle className='click-title'>Todo List</IonCardTitle>
-          <IonCardSubtitle className='click-title'>Applet #3</IonCardSubtitle><br />
-        <div className='img-click-container'>
-          <img src="../src/assets/img/TodoList.PNG" alt="Click logo" className='img-click'/>
-            </div>
-      </IonCardHeader>  
-    </IonCard>
+  const Home: React.FC = () => {
 
-      </IonContent>
-    </IonPage>
-  );
-};
+    {/*Dynamic Search*/}
+    const [searchTerm, setSearchTerm] = useState<string>('');
 
+    return (
+      <IonPage>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Home</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent fullscreen>
+          <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle size="large">Home</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+        {/*Dynamic Search*/}
+        <>
+          <IonSearchbar 
+            value={searchTerm} 
+            onIonInput={(e) => setSearchTerm(e.target.value ?? '')} 
+          />
+          
+          {cardData
+            .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((card, index) => (
+              <IonCard key={index} href={card.link}>
+                <IonCardHeader>
+                  <IonCardTitle>
+                    <IonGrid>
+                      <IonRow>
 
-
-export default Home;
+                        <IonCol size="2">
+                          <IonIcon className="home-card-icon" icon={card.icon} color="primary" />
+                        </IonCol>
+                        <IonCol size="auto">
+                            <div className="home-card-title">{card.title}</div>
+                            <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
+                            <IonIcon className="home-card-subicon" icon={card.subicon} color="primary" />
+                          </IonCol>
+                      </IonRow>
+                     
+                    </IonGrid>
+                  </IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+          ))}
+        </>
+          </IonContent>
+        </IonPage>
+    );
+  };
+  
+  //
+  export default Home;
+  
