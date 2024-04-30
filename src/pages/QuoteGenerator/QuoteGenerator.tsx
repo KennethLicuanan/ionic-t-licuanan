@@ -30,7 +30,7 @@ import {
 } from '@ionic/react';
 
 //Dynamic data reference
-import rizzCard from '../assets/img/rizzCard.json';
+import rizzCard from '../../assets/img/rizzCard.json';
 
 const QuoteGenerator: React.FC = () => {
 
@@ -71,6 +71,9 @@ const QuoteGenerator: React.FC = () => {
           <IonTitle>Quote Generator</IonTitle>
         </IonToolbar>
       </IonHeader>
+      <IonButtons slot="start">
+          <IonBackButton defaultHref="/" />
+        </IonButtons>
       <IonContent className='ion-padding'>
         <IonHeader collapse="condense">
           <IonToolbar>
