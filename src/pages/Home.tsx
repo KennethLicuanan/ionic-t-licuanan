@@ -54,6 +54,13 @@ const cardData = [
     subicon: logoIonic
   },
   
+  {
+    title: 'Notes',
+    icon: pencil,
+    subtitle: 'Applet #5',
+    link: '/Notes',
+    subicon: logoIonic
+  },
 ];
 
   const Home: React.FC = () => {
