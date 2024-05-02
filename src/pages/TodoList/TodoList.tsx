@@ -1,85 +1,219 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
+  IonBackButton,
+  IonButton,
+  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
-  IonTextarea,
-  IonButton,
-  IonList,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonIcon,
+  IonInput,
   IonItem,
-  IonCheckbox,
-  IonButtons,
-  IonBackButton
+  IonLabel,
+  IonList,
+  IonPage,
+  IonRow,
+  IonTextarea,
+  IonTitle,
+  IonToolbar,
+  IonItemDivider,
+  useIonToast
 } from '@ionic/react';
-import './TodoList.css';
-import { addCircleOutline, checkmarkCircleOutline } from 'ionicons/icons';
+import { trashOutline, pencilOutline } from 'ionicons/icons';
+import './TodoList.css'; // Assuming you have a separate CSS file for styling
 
-const Home: React.FC = () => {
-  const [task, setTask] = useState<string>('');
-  const [tasks, setTasks] = useState<string[]>([]);
+// Firebase
+import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import { db } from './firebase';
 
-  const addTask = () => {
-    if (task.trim() !== '') {
-      setTasks([...tasks, task]);
-      setTask(''); // clear the input field
+const Todos: React.FC = () => {
+  const [todos, setTodos] = useState<{ id: string; title: string; description: string; dateAdded: string; completed: boolean; }[]>([]);
+  const [newTitle, setNewTitle] = useState<string>('');
+  const [newDescription, setNewDescription] = useState<string>('');
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+  const inputRefTitle = useRef<HTMLIonInputElement>(null);
+  const inputRefDescription = useRef<HTMLIonTextareaElement>(null);
+  const [present] = useIonToast();
+
+  const clearInput = () => {
+    setNewTitle('');
+    setNewDescription('');
+    if (inputRefTitle.current && inputRefDescription.current) {
+      inputRefTitle.current.setFocus();
     }
   };
 
-  const toggleTask = (index: number) => {
-    const updatedTasks = [...tasks];
-    updatedTasks[index] = updatedTasks[index].startsWith('✓ ') ? updatedTasks[index].substring(2) : '✓ ' + updatedTasks[index];
-    setTasks(updatedTasks);
+  const addTodoToast = (position: 'middle') => {
+    present({
+      message: 'Added new Todo',
+      duration: 1500,
+      position: position,
+    });
+  };
+
+  const editTodoToast = (position: 'middle') => {
+    present({
+      message: 'Changes Saved',
+      duration: 1500,
+      position: position,
+    });
+  };
+
+  const deleteTodoToast = (position: 'middle') => {
+    present({
+      message: 'Todo deleted',
+      duration: 1500,
+      position: position,
+    });
+  };
+
+  const addTodo = async () => {
+    if (newTitle.trim() !== '') {
+      if (editIndex !== null) {
+        // Update existing todo
+        // Implement if needed
+      } else {
+        const currentDate = new Date().toISOString();
+        addTodoToast('middle');
+        await addDoc(collection(db, 'todos'), {
+          title: newTitle,
+          description: newDescription,
+          dateAdded: currentDate,
+          completed: false // New field for tracking completion status
+        });
+      }
+      clearInput();
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, 'todos'), (snapshot) => {
+      setTodos(snapshot.docs.map(doc => ({
+        id: doc.id,
+        description: doc.data().description,
+        title: doc.data().title,
+        dateAdded: doc.data().dateAdded,
+        completed: doc.data().completed
+      })));
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const editTodo = (index: number) => {
+    setEditIndex(index);
+    const editedTodo = todos[index];
+    setNewTitle(editedTodo.title);
+    setNewDescription(editedTodo.description);
+  };
+
+  const updateTodo = async () => {
+    if (editIndex !== null) {
+      editTodoToast('middle');
+      const todoToUpdate = todos[editIndex];
+      await updateDoc(doc(db, 'todos', todoToUpdate.id), {
+        title: newTitle,
+        description: newDescription,
+      });
+      clearInput();
+      setEditIndex(null);
+    }
+  };
+
+  const cancelEdit = () => {
+    clearInput();
+    setEditIndex(null);
+  };
+
+  const deleteTodo = async (index: number) => {
+    deleteTodoToast('middle');
+    const todoToDelete = todos[index];
+    await deleteDoc(doc(db, 'todos', todoToDelete.id));
   };
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle class='home'>Todo List</IonTitle>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/" />
+          </IonButtons>
+          <IonTitle>Todos</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonButtons slot="start">
-          <IonBackButton defaultHref="/" />
-        </IonButtons>
-      <IonContent fullscreen>
-
-        <IonCard color={'warning'}>
+      <IonContent className="ion-padding">
+        <IonCard>
           <IonCardHeader>
-            <IonTextarea
-              value={task}
-              onIonChange={(e) => setTask(e.detail.value!)}
-              label="Solid textarea"
-              labelPlacement="floating"
-              fill="outline"
-              placeholder="Enter text"
-            ></IonTextarea>
+            <IonCardTitle>
+              <IonInput
+                placeholder="Enter task"
+                label="Add Todo"
+                labelPlacement="floating"
+                value={newTitle}
+                onIonInput={(e) => setNewTitle(e.detail.value!)}
+                ref={inputRefTitle}
+              ></IonInput>
+            </IonCardTitle>
+            <IonCardSubtitle>
+              <IonTextarea
+                placeholder="Enter task description"
+                label="Description"
+                labelPlacement="floating"
+                value={newDescription}
+                onIonInput={(e) => setNewDescription(e.detail.value!)}
+                ref={inputRefDescription}
+              ></IonTextarea>
+            </IonCardSubtitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonButton expand="block" onClick={addTask}>Add Task</IonButton>
+            <IonRow>
+              <IonCol>
+                <IonButton expand="block" onClick={editIndex !== null ? updateTodo : addTodo}>
+                  {editIndex !== null ? 'Update' : 'Add'}
+                </IonButton>
+              </IonCol>
+              <IonCol>
+                <IonButton expand="block" fill="clear" onClick={editIndex !== null ? cancelEdit : clearInput}>
+                  {editIndex !== null ? 'Cancel' : 'Clear'}
+                </IonButton>
+              </IonCol>
+            </IonRow>
           </IonCardContent>
         </IonCard>
 
-
-          <IonCard>
-          <IonList>
-          {tasks.map((task, index) => (
-            <IonItem key={index}>
-              <IonCheckbox slot="start" checked={task.startsWith('✓ ')} onIonChange={() => toggleTask(index)} />
-              <IonTitle className={task.startsWith('✓ ') ? 'completed' : ''}>{task}</IonTitle>
-            </IonItem>
-          ))}
+        {/* Todo list output */}
+        <br></br>
+        <IonItemDivider color="light">
+          <IonLabel>Todos</IonLabel>
+        </IonItemDivider>
+        <IonList>
+          {todos
+            .slice()
+            .sort((a, b) => new Date(a.dateAdded).getTime() - new Date(b.dateAdded).getTime())
+            .map((todo, index) => (
+              <IonItem key={index}>
+                <IonLabel>
+                  <h2>{todo.title}</h2>
+                  <p>{todo.description}</p>
+                  <p>{new Date(todo.dateAdded).toLocaleString()}</p>
+                </IonLabel>
+                <IonButton fill="clear" onClick={() => editTodo(index)}>
+                  <IonIcon icon={pencilOutline} />
+                </IonButton>
+                <IonButton fill="clear" onClick={() => deleteTodo(index)}>
+                  <IonIcon icon={trashOutline} />
+                </IonButton>
+              </IonItem>
+            ))}
         </IonList>
-          </IonCard>
-        
-
       </IonContent>
     </IonPage>
   );
 };
 
-export default Home;
+export default Todos;

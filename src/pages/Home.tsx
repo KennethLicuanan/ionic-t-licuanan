@@ -20,7 +20,7 @@ import {
 import './Home.css';
 
 //Ionic Icons
-import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase} from 'ionicons/icons';
+import { speedometerOutline,calculator,pencil, logoIonic, bookmark, book, clipboard, clipboardOutline, calculatorOutline, bookmarkOutline, bookOutline} from 'ionicons/icons';
 
 const cardData = [
   {
@@ -33,14 +33,14 @@ const cardData = [
   },
   {
     title: 'Calculator',
-    icon: calculator,
+    icon: calculatorOutline,
     subtitle: 'Applet #2',
     link: '/Calculator',
     subicon: logoIonic
   },
   {
     title: 'To Do List',
-    icon: pencil,
+    icon: clipboardOutline,
     subtitle: 'Applet #3',
     link: '/TodoList',
     subicon: logoIonic
@@ -48,7 +48,7 @@ const cardData = [
   
   {
     title: 'Quote Generator',
-    icon: pencil,
+    icon: bookmarkOutline,
     subtitle: 'Applet #4',
     link: '/QuoteGenerator',
     subicon: logoIonic
@@ -56,7 +56,7 @@ const cardData = [
   
   {
     title: 'Notes',
-    icon: pencil,
+    icon: bookOutline,
     subtitle: 'Applet #5',
     link: '/Notes',
     subicon: logoIonic
