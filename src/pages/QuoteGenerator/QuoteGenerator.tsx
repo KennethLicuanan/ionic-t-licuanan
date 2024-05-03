@@ -81,7 +81,7 @@ const QuoteGenerator: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <img alt="Silhouette of mountains" src="https://pbs.twimg.com/media/F6SEuqhW0AAJxD5.jpg" />
+        <img alt="Silhouette of mountains" src="src\assets\img\Rizz.PNG" />
           {/*Button Trigger*/}
           <IonGrid>
             <IonRow>

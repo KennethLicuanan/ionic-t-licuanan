@@ -159,16 +159,6 @@ const Todos: React.FC = () => {
                 ref={inputRefTitle}
               ></IonInput>
             </IonCardTitle>
-            <IonCardSubtitle>
-              <IonTextarea
-                placeholder="Enter task description"
-                label="Description"
-                labelPlacement="floating"
-                value={newDescription}
-                onIonInput={(e) => setNewDescription(e.detail.value!)}
-                ref={inputRefDescription}
-              ></IonTextarea>
-            </IonCardSubtitle>
           </IonCardHeader>
           <IonCardContent>
             <IonRow>
