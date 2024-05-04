@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonBackButton, IonButtons} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonBackButton, IonButtons,
+  IonCard, IonCardTitle, IonCardSubtitle, IonCardHeader, IonCardContent
+} from '@ionic/react';
 import ExploreContainer from '../../components/ExploreContainer';
 import './ClickCounter.css';
 
@@ -21,28 +23,39 @@ const ClickCounter: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+        <IonButtons slot="start">
+            <IonBackButton defaultHref="/" />
+          </IonButtons>
           <IonTitle class='click'>Click Counter</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonButtons slot="start">
-          <IonBackButton defaultHref="/" />
-        </IonButtons>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Click Counter</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        {/* Display the click counter */}
+        
         <div className="click-counter">
-          <p>Number of Clicks: {clickCount}</p><br /><br />
-          {/* Button to increment the counter */}
-          <IonButton onClick={handleClick} expand="block">Click me!</IonButton> <br /><br />
-          {/* Button to reset the counter */}
-          <IonButton onClick={handleReset} expand="block" color="danger">Reset</IonButton>
+        <IonCard>
+
+          <IonCardHeader>
+            <IonCardTitle>
+              <p>Number of Clicks: {clickCount}</p>
+              </IonCardTitle>
+            <IonCardSubtitle>
+              
+              <IonButton className='button' onClick={handleClick} expand="block" color={'warning'}>Click me!</IonButton>
+              </IonCardSubtitle>
+            </IonCardHeader>
+
+              <IonCardContent>
+                <IonButton className='button' onClick={handleReset} expand="block" color={'danger'}>Reset</IonButton>
+                </IonCardContent>
+
+          </IonCard>
         </div>
+
+
+       
       </IonContent>
     </IonPage>
+    
   );
 };
 
