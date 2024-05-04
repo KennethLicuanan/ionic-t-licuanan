@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { apertureOutline, calculatorOutline, home, ellipse, personCircleOutline, square, triangle, closeOutline, alertCircleOutline } from 'ionicons/icons';
+import { home, personCircleOutline, } from 'ionicons/icons';
 import Home from './pages/Home';
 import Profile from './pages/Profile/Profile';
 import ClickCounter from './pages/ClickCounter/ClickCounter';
@@ -71,13 +71,13 @@ const App: React.FC = () => (
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-        <IonTabButton tab="Home" href="/Home">
-            <IonIcon aria-hidden="true" icon={home} />
-            <IonLabel>Home</IonLabel>
+        <IonTabButton  tab="Home" href="/Home">
+            <IonIcon aria-hidden="true" color='warning' icon={home} />
+            <IonLabel color='dark'>Home</IonLabel>
           </IonTabButton>
           <IonTabButton tab="Profile" href="/Profile">
-            <IonIcon aria-hidden="true" icon={alertCircleOutline} />
-            <IonLabel>Profile</IonLabel>
+            <IonIcon aria-hidden="true" color='warning' icon={personCircleOutline} />
+            <IonLabel color='dark'>Profile</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

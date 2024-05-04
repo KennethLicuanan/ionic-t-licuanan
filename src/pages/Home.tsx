@@ -28,7 +28,6 @@ const cardData = [
     icon: speedometerOutline,
     subtitle: 'Applet #1',
     link: '/ClickCounter',
-    subicon: logoIonic
 
   },
   {
@@ -36,14 +35,12 @@ const cardData = [
     icon: calculatorOutline,
     subtitle: 'Applet #2',
     link: '/Calculator',
-    subicon: logoIonic
   },
   {
     title: 'To Do List',
     icon: clipboardOutline,
     subtitle: 'Applet #3',
     link: '/TodoList',
-    subicon: logoIonic
   },
   
   {
@@ -51,7 +48,6 @@ const cardData = [
     icon: bookmarkOutline,
     subtitle: 'Applet #4',
     link: '/QuoteGenerator',
-    subicon: logoIonic
   },
   
   {
@@ -59,7 +55,6 @@ const cardData = [
     icon: bookOutline,
     subtitle: 'Applet #5',
     link: '/Notes',
-    subicon: logoIonic
   },
 ];
 
@@ -98,12 +93,12 @@ const cardData = [
                       <IonRow>
 
                         <IonCol size="2">
-                          <IonIcon className="home-card-icon" icon={card.icon} color="primary" />
+                          <IonIcon className="home-card-icon" icon={card.icon} color='warning' />
                         </IonCol>
                         <IonCol size="auto">
                             <div className="home-card-title">{card.title}</div>
                             <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
-                            <IonIcon className="home-card-subicon" icon={card.subicon} color="primary" />
+                            <IonIcon/>
                           </IonCol>
                       </IonRow>
                      

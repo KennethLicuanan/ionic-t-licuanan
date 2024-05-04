@@ -27,7 +27,7 @@ import {
 } from '@ionic/react';
 //Ionicons
 import { trashOutline, pencilOutline } from 'ionicons/icons';
-
+//Styles
 import './notes.css';
 
 // Firebase
