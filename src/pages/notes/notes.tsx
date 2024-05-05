@@ -157,7 +157,7 @@ const deleteNote = async (index: number) => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <IonCard>
+        <IonCard color={'warning'}>
           <IonCardHeader>
             <IonCardTitle>
               <IonInput
@@ -191,12 +191,12 @@ const deleteNote = async (index: number) => {
           <IonCardContent>
             <IonRow>
               <IonCol>
-                <IonButton expand="block" onClick={editIndex !== null ? updateNote : addNote}>
+                <IonButton expand="block" onClick={editIndex !== null ? updateNote : addNote} color={'dark'}>
                   {editIndex !== null ? 'Update' : 'Add'}
                 </IonButton>
               </IonCol>
               <IonCol> 
-                <IonButton expand="block" fill="clear" onClick={editIndex !== null ? cancelEdit : clearInput}>
+                <IonButton expand="block" fill="clear" onClick={editIndex !== null ? cancelEdit : clearInput} color={'dark'}>
                   {editIndex !== null ? 'Cancel' : 'Clear'}
                 </IonButton>
               </IonCol>
@@ -205,6 +205,7 @@ const deleteNote = async (index: number) => {
         </IonCard>
         {/*Todo list output*/}
         <br></br>
+        <IonCard>
         <IonItemDivider color="light">
           <IonLabel>Notes</IonLabel>
         </IonItemDivider>
@@ -227,7 +228,8 @@ const deleteNote = async (index: number) => {
               </IonButton>
             </IonItem>
           ))}
-        </IonList> 
+        </IonList>
+        </IonCard> 
       </IonContent>
     </IonPage>
   );

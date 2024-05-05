@@ -147,7 +147,7 @@ const Todos: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <IonCard>
+        <IonCard color={'warning'}>
           <IonCardHeader>
             <IonCardTitle>
               <IonInput
@@ -163,12 +163,12 @@ const Todos: React.FC = () => {
           <IonCardContent>
             <IonRow>
               <IonCol>
-                <IonButton expand="block" onClick={editIndex !== null ? updateTodo : addTodo}>
+                <IonButton expand="block" onClick={editIndex !== null ? updateTodo : addTodo} color={'dark'}>
                   {editIndex !== null ? 'Update' : 'Add'}
                 </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton expand="block" fill="clear" onClick={editIndex !== null ? cancelEdit : clearInput}>
+                <IonButton expand="block" fill="clear" onClick={editIndex !== null ? cancelEdit : clearInput} color={'dark'}>
                   {editIndex !== null ? 'Cancel' : 'Clear'}
                 </IonButton>
               </IonCol>
@@ -178,6 +178,7 @@ const Todos: React.FC = () => {
 
         {/* Todo list output */}
         <br></br>
+        <IonCard>
         <IonItemDivider color="light">
           <IonLabel>Todos</IonLabel>
         </IonItemDivider>
@@ -201,6 +202,7 @@ const Todos: React.FC = () => {
               </IonItem>
             ))}
         </IonList>
+        </IonCard>
       </IonContent>
     </IonPage>
   );

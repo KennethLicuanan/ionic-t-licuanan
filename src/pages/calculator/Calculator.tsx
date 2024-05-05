@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonGrid, IonRow, IonCol, IonBackButton, IonButtons, IonInput } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonGrid, IonRow, IonCol, IonBackButton, IonButtons, IonInput, IonCard } from '@ionic/react';
 
 import './Calculator.css';
 
@@ -37,6 +37,7 @@ const Calculator: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen className="ion-padding" style={{ backgroundColor: 'dark' }}>
+          <IonCard>
           <IonGrid>
           <IonRow>
             <IonCol size="12" style={{ height: '70px', fontSize: '60px', marginBottom: '30px', backgroundColor: 'rgb(25, 25, 25)' }}>
@@ -114,6 +115,7 @@ const Calculator: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
