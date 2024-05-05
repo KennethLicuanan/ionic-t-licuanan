@@ -120,7 +120,7 @@ const Quotes: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <IonCard>
+        <IonCard color={'warning'}>
           <IonCardHeader>
             <IonCardTitle>
               <IonInput
@@ -142,19 +142,19 @@ const Quotes: React.FC = () => {
           <IonCardContent>
             <IonRow>
               <IonCol>
-                <IonButton expand="block" onClick={addQuote}>
+                <IonButton expand="block" onClick={addQuote} color={'dark'}>
                   Add Quote
                 </IonButton>
               </IonCol>
               <IonCol>
-                <IonButton expand="block" onClick={generateRandomQuote}>
+                <IonButton expand="block" onClick={generateRandomQuote} color={'dark'}>
                   <IonIcon icon={refreshOutline} />
                   Generate Random Quote
                 </IonButton>
               </IonCol>
 
               <IonCol>
-                <IonButton expand="block" onClick={() => setIsOpen(true)}>View Added Quotes</IonButton>
+                <IonButton expand="block" onClick={() => setIsOpen(true)} color={'dark'}>View Added Quotes</IonButton>
                     <IonModal isOpen={isOpen}>
                       <IonHeader>
                         <IonToolbar>
