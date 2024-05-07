@@ -27,34 +27,34 @@ const cardData = [
     title: 'Click Counter',
     icon: speedometerOutline,
     subtitle: 'Applet #1',
-    link: '/ClickCounter',
+    link: '/ionic-t-licuanan/Home/ClickCounter',
 
   },
   {
     title: 'Calculator',
     icon: calculatorOutline,
     subtitle: 'Applet #2',
-    link: '/Calculator',
+    link: '/ionic-t-licuanan/Home/Calculator',
   },
   {
     title: 'To Do List',
     icon: clipboardOutline,
     subtitle: 'Applet #3',
-    link: '/TodoList',
+    link: '/ionic-t-licuanan/Home/TodoList',
   },
   
   {
     title: 'Quote Generator',
     icon: bookmarkOutline,
     subtitle: 'Applet #4',
-    link: '/QuoteGenerator',
+    link: '/ionic-t-licuanan/Home/QuoteGenerator',
   },
   
   {
     title: 'Notes',
     icon: bookOutline,
     subtitle: 'Applet #5',
-    link: '/Notes',
+    link: '/ionic-t-licuanan/Home/Notes',
   },
 ];
 
@@ -86,7 +86,7 @@ const cardData = [
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((card, index) => (
-              <IonCard key={index} href={card.link}>
+              <IonCard key={index} routerLink={card.link} routerDirection='forward'>
                 <IonCardHeader>
                   <IonCardTitle>
                     <IonGrid>

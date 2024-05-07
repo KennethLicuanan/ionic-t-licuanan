@@ -45,33 +45,33 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-        <Route exact path="/Home">
+        <Route exact path="/ionic-t-licuanan/Home">
             <Home />
           </Route>
-          <Route exact path="/Profile">
+          <Route exact path="/ionic-t-licuanan/Home/Profile">
             <Profile />
           </Route>
-          <Route exact path="/ClickCounter">
+          <Route exact path="/ionic-t-licuanan/Home/ClickCounter">
             <ClickCounter />
           </Route>
-          <Route path="/Calculator">
+          <Route path="/ionic-t-licuanan/Home/Calculator">
             <Calculator />
           </Route>
-          <Route path="/TodoList">
+          <Route path="/ionic-t-licuanan/Home/TodoList">
             <TodoList />
           </Route>
-          <Route path="/QuoteGenerator">
+          <Route path="/ionic-t-licuanan/Home/QuoteGenerator">
             <QuoteGenerator />
           </Route>
-          <Route path="/Notes">
+          <Route path="/ionic-t-licuanan/Home/Notes">
             <Notes />
           </Route>
           <Route exact path="/">
-            <Redirect to="/Home" />
+            <Redirect to="/ionic-t-licuanan/Home" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-        <IonTabButton  tab="Home" href="/Home">
+        <IonTabButton  tab="Home" href="/ionic-t-licuanan/Home">
             <IonIcon aria-hidden="true" color='warning' icon={home} />
             <IonLabel color='dark'>Home</IonLabel>
           </IonTabButton>
