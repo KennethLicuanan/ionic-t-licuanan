@@ -75,7 +75,7 @@ const App: React.FC = () => (
             <IonIcon aria-hidden="true" color='warning' icon={home} />
             <IonLabel color='dark'>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="Profile" href="/Profile">
+          <IonTabButton tab="Profile" href="/ionic-t-licuanan/Home/Profile">
             <IonIcon aria-hidden="true" color='warning' icon={personCircleOutline} />
             <IonLabel color='dark'>Profile</IonLabel>
           </IonTabButton>
