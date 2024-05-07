@@ -52,7 +52,7 @@ const Profile: React.FC = () => {
         </IonHeader>
 
         <IonCard >
-      <img alt="Silhouette of mountains" src="../src/assets/img/ME.jpg" />
+      <img alt="Silhouette of mountains" src="https://raw.githubusercontent.com/KennethLicuanan/ionic-t-licuanan/main/src/assets/img/ME.jpg" />
         <IonCardHeader>
            <IonCardTitle className='card'>Kenneth LLoyd C. Licuanan</IonCardTitle>
            <IonCardSubtitle>This is my Handsome Self</IonCardSubtitle>

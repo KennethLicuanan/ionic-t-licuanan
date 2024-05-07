@@ -66,7 +66,7 @@ const App: React.FC = () => (
           <Route path="/ionic-t-licuanan/Home/Notes">
             <Notes />
           </Route>
-          <Route exact path="/">
+          <Route exact path="/ionic-t-licuanan/">
             <Redirect to="/ionic-t-licuanan/Home" />
           </Route>
         </IonRouterOutlet>
